@@ -36,10 +36,12 @@
       z-index: 1000;
     }
 
-    .menu-conteudo {
+   .menu-conteudo {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .menu-logo {
@@ -59,6 +61,9 @@
       text-decoration: none;
       box-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 0.5rem 0;
+      width: 100%;
+      text-align: center;
     }
 
     .botao1:hover {
@@ -71,14 +76,8 @@
       display: flex;
       align-items: center;
       margin-left: auto;
-    }
-
-    .menu-pesquisa input {
-      padding: 6px 12px;
-      border: 2px solid #00ffff;
-      border-radius: 4px 0 0 4px;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
+      width: 100%;
+      margin-top: 1rem;
     }
 
     .menu-pesquisa button {
@@ -110,7 +109,7 @@
 
 .capa-video {
   width: 55%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 
