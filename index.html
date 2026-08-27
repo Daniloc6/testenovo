@@ -1,0 +1,252 @@
+<<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DT Inova 3D - Impressão 3D</title>
+  
+  <!-- Fonte Orbitron -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(180deg, #0a0a0f 0%, #1a0033 100%);
+      color: #ff00f2;
+      line-height: 1.6;
+      overflow-x: hidden;
+      
+    }
+
+    /* Menu */
+    .menu {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 0.5rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .menu-conteudo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .menu-logo {
+      width: 120px;
+      filter: drop-shadow(0 0 15px #00ffff);
+    }
+
+    .botao1 {
+      display: inline-block;
+      margin-left: 1rem;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(90deg, #ff00ff, #00ffff);
+      color: #000;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .botao1:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #ff00ff, 0 0 35px #00ffff;
+    }
+
+    /* Pesquisa no menu */
+    .menu-pesquisa {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .menu-pesquisa input {
+      padding: 6px 12px;
+      border: 2px solid #00ffff;
+      border-radius: 4px 0 0 4px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+    }
+
+    .menu-pesquisa button {
+      background: #ff00ff;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+    .menu-pesquisa img {
+      filter: drop-shadow(0 0 8px #00ffff) drop-shadow(0 0 12px #ff00ff);
+    }
+
+    /* Capa com vídeo */
+   .capa {
+  display: flex;
+  flex-direction: column; /* vídeo em cima, overlay abaixo */
+  align-items: center;
+  text-align: center;
+}
+
+/* Vídeo ocupa o topo */
+.capa-video-container {
+  width: 100%;
+  height: 50vh; /* metade da tela, pode ajustar */
+  overflow: hidden;
+}
+
+.capa-video {
+  width: 55%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay abaixo do vídeo */
+.capa-overlay {
+  width: 100%;
+  padding: 2rem;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  box-shadow: 0 0 30px #ff00ff, 0 0 50px #00ffff;
+}
+
+.capa-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff00f2;
+  text-shadow: 0 0 15px #ff00f2, 0 0 25px #ff00f2;
+    }
+
+    .botao {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(90deg, #ff00ff, #00ffff);
+      color: #000;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
+      transition: transform 0.3s ease;
+    }
+
+    .botao:hover {
+      transform: scale(1.15);
+    }
+
+    .capa-seta {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+    }
+
+    .capa-seta img {
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navegação -->
+  <nav class="menu" id="menu">
+    <div class="menu-conteudo">
+      <img class="menu-logo" src="assets/logo.png" alt="Logo DT Inova 3D">
+      <a href="produtos.html" class="botao1">Produtos</a>
+      <a href="#" class="botao1">Orçamentos</a>
+      <a href="#" class="botao1">Contatos</a>
+      <a href="Nossa-historia.html" class="botao1">Nossa História</a>
+      <!-- Ícone de pesquisa -->
+      <form class="menu-pesquisa">
+        <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar">
+        <button type="submit">
+          <img src="assets/pesquisa.png" alt="Pesquisar" width="22" height="22">
+        </button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- Capa com vídeo background -->
+  <header class="capa">
+    <img muted playsinline preload="auto" class="capa-video" src="assets/logo.png">
+      <!-- Seu navegador não suporta vídeo HTML5. -->
+
+
+    <div class="capa-overlay">
+      <h1>A MELHOR OPÇÃO EM IMPRESSÃO 3D.</h1>
+      <div class="capa-barra">
+        <div class="capa-barra-conteudo">
+          <div class="capa-lancamento">
+            <p class="capa-lancamento-rotulo">🚀 Realizamos todos os seus sonhos</p>
+            <p class="capa-lancamento-data">É só imaginar que nós fazemos</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="botao botao-primario">Faça seu orçamento</a>
+
+      <div class="capa-plataforma">
+        <p class="capa-rotulo">🎮 Disponível em</p>
+        <span class="lista-plataforma">2026</span>
+      </div>
+
+      <div class="capa-seta">
+        <img src="assets/seta-baixo.png" alt="Role para baixo" width="24" height="24">
+      </div>
+    </div>
+  </header>
+  
+
+  <script>
+    // Rolagem suave ao clicar na seta
+    document.querySelector('.capa-seta img').addEventListener('click', () => {
+      window.scrollTo({
+        top: document.querySelector('header').offsetHeight,
+        behavior: 'smooth'
+      });
+    });
+
+    // Efeito glow pulsante nos botões
+    const botoes = document.querySelectorAll('.botao, .botao1');
+    botoes.forEach(botao => {
+      botao.addEventListener('mouseenter', () => {
+        botao.style.boxShadow = '0 0 25px #ff00ff, 0 0 35px #00ffff';
+      });
+      botao.addEventListener('mouseleave', () => {
+        botao.style.boxShadow = '0 0 15px #ff00ff, 0 0 25px #00ffff';
+      });
+    });
+
+    // Função de pesquisa simulada
+    document.querySelector('.menu-pesquisa').addEventListener('submit', e => {
+      e.preventDefault();
+      const termo = e.target.querySelector('input').value.trim();
+      if (termo) {
+        alert(`🔍 Buscando por: ${termo}`);
+      } else {
+        alert('Digite algo para pesquisar.');
+      }
+    });
+  </script>
+</body>
+</html>
